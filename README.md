@@ -39,77 +39,176 @@ A professional-grade cybersecurity application designed for advanced network mon
 ## 📋 Requirements
 
 ### Windows (Production)
-- Visual Studio 2022
-- wxWidgets 3.3 (static linking)
-- CMake 3.20+
-- NSIS for installer
+- **Visual Studio 2022** (Community Edition is free)
+- **wxWidgets 3.3** (static linking)
+- **CMake 3.20+**
+- **NSIS** for installer creation
+- **Git** for cloning
 
 ### macOS (Development)
 - Xcode Command Line Tools
 - Homebrew: `brew install wxwidgets cmake`
 - Clang/LLVM
 
-## 🔧 Building
+## 🔧 Quick Start - Windows
 
-### Windows Production Build
+### Step 1: Clone the Repository
 ```bash
-# Clone repository
+# Open Command Prompt or PowerShell
 git clone https://github.com/M4Ahmadullah/Masoudy-Dictionary.git
 cd Masoudy-Dictionary
-
-# Build with CMake
-mkdir build && cd build
-cmake .. -G "Visual Studio 17 2022" -A x64
-cmake --build . --config Release
-
-# Create installer
-./build_windows_production.bat
 ```
 
-### macOS Development Build
+### Step 2: Install Dependencies
+
+#### Option A: Using vcpkg (Recommended)
 ```bash
-# Install dependencies
-brew install wxwidgets cmake
+# Install vcpkg if you don't have it
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg integrate install
 
-# Build for validation
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j$(nproc)
+# Install wxWidgets
+.\vcpkg install wxwidgets:x64-windows-static
 ```
 
-## 🎯 Usage
+#### Option B: Manual Installation
+1. **Download wxWidgets 3.3** from https://www.wxwidgets.org/downloads/
+2. **Extract to C:\wxWidgets-3.3**
+3. **Build wxWidgets** (see wxWidgets documentation)
+
+### Step 3: Build the Application
+```bash
+# Navigate to development folder
+cd MasoudyDictionary_Development
+
+# Create build directory
+mkdir build
+cd build
+
+# Configure with CMake
+cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+# Build the project
+cmake --build . --config Release
+```
+
+### Step 4: Create Production Installer
+```bash
+# Run the production build script
+cd ..
+.\build_windows_production.bat
+```
+
+### Step 5: Install and Run
+1. **Find the installer**: `MasoudyDictionary_Production/Versions/Masoudy-Dictionary-V-1.0/`
+2. **Run installer**: `Masoudy-Dictionary-Setup.exe`
+3. **Launch application**: Start from Start Menu or Desktop shortcut
+
+## 🔧 Building from Source - Detailed Instructions
+
+### Prerequisites Installation
+
+#### 1. Install Visual Studio 2022
+```bash
+# Download from: https://visualstudio.microsoft.com/downloads/
+# Install with C++ development workload
+# Include: MSVC v143, Windows 10/11 SDK, CMake tools
+```
+
+#### 2. Install wxWidgets
+```bash
+# Method 1: Using vcpkg (Easiest)
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg integrate install
+.\vcpkg install wxwidgets:x64-windows-static
+
+# Method 2: Manual build
+# Download wxWidgets 3.3 source
+# Build with: nmake -f makefile.vc BUILD=release SHARED=0
+```
+
+#### 3. Install CMake
+```bash
+# Download from: https://cmake.org/download/
+# Add to PATH during installation
+```
+
+### Build Process
+
+#### 1. Clone Repository
+```bash
+git clone https://github.com/M4Ahmadullah/Masoudy-Dictionary.git
+cd Masoudy-Dictionary/MasoudyDictionary_Development
+```
+
+#### 2. Configure Build
+```bash
+mkdir build
+cd build
+
+# Configure with CMake
+cmake .. -G "Visual Studio 17 2022" -A x64 ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DwxWidgets_ROOT_DIR=C:/wxWidgets-3.3 ^
+    -DwxWidgets_CONFIG_EXECUTABLE=C:/wxWidgets-3.3/build/msw/wx-config.exe
+```
+
+#### 3. Build Application
+```bash
+# Build in Release mode
+cmake --build . --config Release --parallel
+
+# Or open in Visual Studio
+start MasoudyDictionary.sln
+```
+
+#### 4. Create Installer
+```bash
+# Install NSIS if not already installed
+# Download from: https://nsis.sourceforge.io/Download
+
+# Run installer creation
+cd ..
+.\build_windows_production.bat
+```
+
+## 🎯 Usage Guide
 
 ### Network Discovery
-1. Launch the application
-2. Click "Network Scanner" from Tools menu
-3. Enter IP range (e.g., "192.168.1.1-254")
-4. Click "Start Scan" to discover hosts
-5. Select target host and click "Connect"
+1. **Launch the application**
+2. **Click "Network Scanner"** from Tools menu
+3. **Enter IP range** (e.g., "192.168.1.1-254")
+4. **Click "Start Scan"** to discover hosts
+5. **Select target host** and click "Connect"
 
 ### Screen Sharing
-1. Establish connection to target
-2. Click "Screen Sharing" from Tools menu
-3. Configure quality and frame rate settings
-4. Click "Start Sharing" to begin capture
-5. Receiver will display real-time screen
+1. **Establish connection** to target
+2. **Click "Screen Sharing"** from Tools menu
+3. **Configure quality** and frame rate settings
+4. **Click "Start Sharing"** to begin capture
+5. **Receiver displays** real-time screen
 
 ### Stealth Mode
-1. Click "Stealth Mode" from Mode menu
-2. Application becomes invisible to monitoring tools
-3. Process hidden from Task Manager
-4. Network traffic obfuscated
+1. **Click "Stealth Mode"** from Mode menu
+2. **Application becomes invisible** to monitoring tools
+3. **Process hidden** from Task Manager
+4. **Network traffic obfuscated**
 
 ### Exam Mode
-1. Click "Exam Mode" from Mode menu
-2. Application window disappears completely
-3. Screen sharing continues in background
-4. No visible indicators of operation
+1. **Click "Exam Mode"** from Mode menu
+2. **Application window disappears** completely
+3. **Screen sharing continues** in background
+4. **No visible indicators** of operation
 
 ### Remote Control
-1. Enable remote control on target system
-2. Send mouse movements: `MOUSE_MOVE x y`
-3. Send keyboard input: `KEY_PRESS keycode`
-4. Execute system commands: `SYSTEM_COMMAND "cmd"`
+1. **Enable remote control** on target system
+2. **Send mouse movements**: `MOUSE_MOVE x y`
+3. **Send keyboard input**: `KEY_PRESS keycode`
+4. **Execute system commands**: `SYSTEM_COMMAND "cmd"`
 
 ## 🔒 Security Features
 
@@ -143,6 +242,43 @@ MasoudyDictionary_Development/
 ├── resources/             # Application resources
 ├── CMakeLists.txt        # Build configuration
 └── build_windows_production.bat # Windows build script
+```
+
+## 🚨 Troubleshooting
+
+### Common Build Issues
+
+#### 1. wxWidgets Not Found
+```bash
+# Solution: Set wxWidgets path explicitly
+cmake .. -DwxWidgets_ROOT_DIR=C:/wxWidgets-3.3
+```
+
+#### 2. CMake Configuration Errors
+```bash
+# Solution: Install Visual Studio 2022 with C++ workload
+# Ensure Windows SDK is installed
+```
+
+#### 3. Linker Errors
+```bash
+# Solution: Use static linking
+cmake .. -DwxWidgets_USE_STATIC=ON
+```
+
+#### 4. Runtime Errors
+```bash
+# Solution: Install Visual C++ Redistributable
+# Download from Microsoft website
+```
+
+### Performance Optimization
+```bash
+# Build with optimizations
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE="/O2 /MT"
+
+# Enable parallel builds
+cmake --build . --parallel
 ```
 
 ## 🚨 Disclaimer
