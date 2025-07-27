@@ -1,0 +1,169 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+out/
+Debug/
+Release/
+x64/
+Win32/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Visual Studio files
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# wxWidgets generated files
+*.rc
+*.ico
+*.bmp
+*.xpm
+
+# Executables
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Object files
+*.o
+*.obj
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Installer files
+*.msi
+*.exe
+*.dmg
+*.pkg
+
+# Documentation build
+docs/_build/
+docs/html/
+
+# Test files
+test_*
+*_test
+*.test
+
+# Configuration files with sensitive data
+config.ini
+settings.ini
+*.key
+*.pem
+*.p12
+
+# Backup files
+*.orig
+*.rej
+
+# Coverage reports
+*.gcov
+*.gcda
+*.gcno
+
+# Profiling data
+*.prof
+*.gprof
+
+# Memory dumps
+*.dmp
+*.mdmp
+
+# Package files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# NSIS installer
+*.nsi
+*.nsh
+installer/ 

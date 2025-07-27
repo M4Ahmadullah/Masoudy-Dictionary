@@ -1,0 +1,211 @@
+Architecture Diagram Description for Masoudy Dictionary
+
+This is a text description for creating the architecture diagram:
+
++-------------------+      +-------------------+      +-------------------+
+|                   |      |                   |      |                   |
+|  Masoudy GUI     |<---->|   Core Library    |----->|  Stealth Engine   |
+|   (Main App)     |      | (MasoudyCore.dll) |      |  (Memory Only)    |
+|                   |      |                   |      |                   |
++-------------------+      +-------------------+      +-------------------+
+        |                                                      |
+        |                                                      |
+        |              Named Pipes / TCP                       |
+        +----------------------------------------------------->+
+                       (Secure Communication)
+
+Components:
+
+1. Masoudy GUI Application:
+   - Modern GUI application built with wxWidgets
+   - Key components:
+     * MainFrame - main application window and UI controller
+     * DictionaryPanel - dictionary functionality and word lookup
+     * ScreenSharingPanel - screen sharing interface and controls
+     * SettingsPanel - comprehensive configuration interface
+     * NetworkScannerDialog - LAN discovery and target selection
+     * StatusBar - real-time status and connection information
+     * MenuBar - application menu and navigation
+     * ToolBar - quick access toolbar with common functions
+     * AboutDialog - application information and credits
+   - Cross-platform support (Windows, macOS, Linux)
+   - Comprehensive UI features:
+     * Multiple themes (System, Light, Dark, Custom)
+     * Fullscreen and borderless modes
+     * Click-through input mode for screen sharing
+     * Screen capture with configurable refresh
+     * Macro command support
+     * Hotkey controls (F11, F12, Ctrl+Alt+C, etc.)
+     * Favorites management for dictionary words
+     * System tray integration
+     * Comprehensive logging
+     * Network scanner with manual IP entry option
+     * Stealth mode with hidden operation
+
+2. Masoudy Core Library:
+   - Shared library providing core functionality
+   - Core modules:
+     * MasoudyCore - main application controller
+     * StealthEngine - advanced stealth capabilities
+     * CommunicationEngine - secure communication protocols
+     * ScreenCapture - real-time screen capture
+     * InputHandler - mouse and keyboard input simulation
+     * NetworkScanner - LAN discovery and host scanning
+     * MemoryProtection - memory encryption and protection
+     * ProcessInjector - process injection capabilities
+
+3. Stealth Engine:
+   - Advanced stealth and evasion capabilities
+   - Core features:
+     * Process hiding and unlinking from PEB
+     * Thread hiding and anti-debugging techniques
+     * Memory encryption and obfuscation
+     * Network traffic obfuscation
+     * Behavioral mimicry of legitimate applications
+     * Anti-VM and anti-sandbox detection
+     * Direct syscalls to bypass API hooks
+     * Timing attacks and random delays
+
+Communication Flow:
+1. Masoudy GUI initializes and loads the core library
+2. User selects mode (Dictionary, Screen Sharing, Stealth)
+3. Core library initializes appropriate components
+4. For screen sharing: Network scanner discovers targets
+5. Secure communication established via named pipes or TCP
+6. Bidirectional communication for screen sharing and control
+
+Application Modes:
+
+1. Dictionary Mode:
+   - Multi-language dictionary functionality
+   - Offline word lookup and definitions
+   - Custom word additions and bookmarks
+   - Search suggestions and pronunciation
+   - Export/import dictionary data
+
+2. Screen Sharing Mode:
+   - Real-time screen capture and display
+   - Network discovery and target selection
+   - Encrypted data transmission
+   - Mouse and keyboard input control
+   - Configurable quality and frame rate
+   - Multi-monitor support
+
+3. Stealth Mode:
+   - Hidden operation with no visible interface
+   - Background screen sharing capabilities
+   - Hotkey-based control system
+   - Memory-only operation with no disk artifacts
+   - Advanced evasion techniques
+
+Configuration Management:
+- Persistent settings via wxConfig
+- User preferences stored in JSON format
+- Customizable UI themes and layouts
+- Network scan configuration
+- Connection parameters and encryption settings
+- Hotkey definitions and customizations
+- Dictionary settings and language preferences
+- Logging preferences and levels
+
+User Interface Features:
+- Theme support (System, Light, Dark, Custom)
+- System tray integration with notifications
+- Dictionary favorites management
+- Log viewer with filtering and export capabilities
+- Settings dialog with multiple configuration tabs
+- Network scanner with manual IP entry option
+- Status indicators and progress feedback
+- Lightweight and responsive design
+
+Memory-Only Operation:
+- No disk artifacts in stealth mode
+- Direct syscalls to bypass EDR hooks
+- Encrypted memory sections
+- Advanced stealth techniques to avoid detection
+
+Security and Production Features:
+- End-to-end encryption for all communications
+- Certificate validation and secure authentication
+- Session management and access control
+- Comprehensive error handling and logging
+- Cross-platform compatibility
+- Professional installer and distribution system
+
+Distribution and Deployment:
+- Windows installer with NSIS
+- Portable version for USB drive distribution
+- GitHub repository with complete documentation
+- Build scripts for multiple platforms
+- Professional packaging and branding
+
+Technical Requirements:
+- Windows 7 SP1 or later (Windows 10 recommended)
+- 2GB RAM minimum (4GB recommended)
+- 100MB disk space (500MB recommended)
+- Network connectivity for screen sharing features
+- wxWidgets libraries for the GUI
+
+Build and Development:
+The project uses CMake as its build system with the following structure:
+
+```
+MasoudyDictionary/
+├── CMakeLists.txt              # Main CMake configuration
+├── README.md                   # Project overview
+├── LICENSE                     # MIT License
+├── docs/
+│   ├── architecture.txt        # Architecture description
+│   └── Masoudy_Documentation.md # Comprehensive documentation
+├── masoudy_core/              # Core library
+│   ├── CMakeLists.txt
+│   ├── src/                    # Core source files
+│   └── README.md               # Core documentation
+├── masoudy_gui/               # GUI application
+│   ├── CMakeLists.txt
+│   ├── src/                    # GUI source files
+│   └── README.md               # GUI documentation
+├── masoudy_installer/         # Installer components
+│   ├── CMakeLists.txt
+│   ├── src/                    # Installer source files
+│   └── README.md               # Installer documentation
+├── resources/                  # Application resources
+│   ├── icon.ico               # Application icon
+│   ├── resources.rc           # Windows resources
+│   └── app.manifest           # Application manifest
+├── build.bat                  # Windows build script
+└── build.sh                   # Unix build script
+```
+
+Building the Project:
+To build the project:
+
+1. Install CMake (3.10 or higher) and a C++17 compatible compiler
+2. Install wxWidgets development libraries
+3. Clone the repository
+4. Run the following commands:
+
+```bash
+# Windows
+build.bat
+
+# Unix/Linux/macOS
+./build.sh
+```
+
+The compiled binaries will be placed in the `build/bin` directory.
+
+Distribution Methods:
+1. Windows Installer: Professional NSIS installer with desktop shortcuts
+2. Portable Version: Extract to USB drive and run directly
+3. GitHub Distribution: Complete repository with documentation and build scripts
+
+Production Features:
+- Professional branding and user interface
+- Comprehensive error handling and logging
+- Cross-platform compatibility
+- Advanced security features
+- Stealth operation capabilities
+- Network discovery and screen sharing
+- Dictionary functionality with multiple languages
+- Professional installer and distribution system 

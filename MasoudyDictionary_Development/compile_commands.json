@@ -1,0 +1,47 @@
+[
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/main.cpp -o src/main.o",
+    "file": "src/main.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/masoudy_app.cpp -o src/masoudy_app.o",
+    "file": "src/masoudy_app.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/main_frame.cpp -o src/main_frame.o",
+    "file": "src/main_frame.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/login_dialog.cpp -o src/login_dialog.o",
+    "file": "src/login_dialog.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/stealth_panel.cpp -o src/stealth_panel.o",
+    "file": "src/stealth_panel.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/settings_panel.cpp -o src/settings_panel.o",
+    "file": "src/settings_panel.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/network_scanner_dialog.cpp -o src/network_scanner_dialog.o",
+    "file": "src/network_scanner_dialog.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/screen_sharing_panel.cpp -o src/screen_sharing_panel.o",
+    "file": "src/screen_sharing_panel.cpp"
+  },
+  {
+    "directory": "/Users/ahmadullahmasoudy/Documents/Under-DEV-ideas/INVISIBLE/MasoudyDictionary_Development",
+    "command": "/usr/bin/c++ -std=c++17 -I/opt/homebrew/include/wx-3.3 -I/opt/homebrew/lib/wx/include/osx_cocoa-unicode-3.3 -DWXUSINGDLL -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__ -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -DWX_STATIC -D_UNICODE -DUNICODE -DMASOUDY_DICTIONARY_VERSION=\"1.0.0\" -DMASOUDY_DICTIONARY_NAME=\"Masoudy Dictionary\" -D_WIN32_WINNT=0x0601 -DWIN32_LEAN_AND_MEAN -DNOMINMAX -I./src -c src/menu_bar.cpp -o src/menu_bar.o",
+    "file": "src/menu_bar.cpp"
+  }
+] 
