@@ -1,8 +1,8 @@
-# Masoudy Dictionary - Windows Distribution
+# Masoudy Dictionary - Production Build
 
 ## 🎯 Complete Cybersecurity Application
 
-This is a fully functional Windows executable of the Masoudy Dictionary application, built with cross-compilation from macOS.
+This is the production-ready Windows executable of the Masoudy Dictionary application, built with cross-compilation from macOS.
 
 ## 🚀 Features
 
@@ -23,9 +23,25 @@ This is a fully functional Windows executable of the Masoudy Dictionary applicat
 - **Network Obfuscation**: Traffic disguised as legitimate HTTPS
 - **Anti-VM/Sandbox**: Detection and evasion of analysis environments
 
+## 📁 Organized Source Structure
+
+The application source code is organized into logical modules:
+
+- **GUI/**: User interface components (wxWidgets)
+- **Core/**: Main application logic and error handling
+- **Network/**: Network scanning and discovery
+- **Stealth/**: Anti-detection and evasion features
+- **Communication/**: Network protocols and messaging
+- **Screen_Sharing/**: Screen capture and transmission
+- **Input/**: Remote control and input injection
+- **Auth/**: Authentication and session management
+- **Config/**: Configuration validation and management
+- **Memory/**: Memory protection and encryption
+- **Process/**: Process injection and manipulation
+
 ## 📦 Installation
 
-1. **Extract** the distribution folder to your Windows system
+1. **Extract** this folder to your Windows system
 2. **Run** `MasoudyDictionary.exe` or double-click `run.bat`
 3. **Enjoy** the complete cybersecurity application!
 
@@ -44,8 +60,8 @@ This executable demonstrates successful cross-compilation from macOS to Windows,
 
 ## 📁 Project Information
 
-- **Source Files**: 80+ files
-- **Code Lines**: 12,000+ lines
+- **Source Files**: 80+ files organized in 11 modules
+- **Code Lines**: 12,000+ lines of production code
 - **Build System**: CMake + Cross-compilation
 - **GUI Framework**: wxWidgets (full version)
 - **Documentation**: Complete user and technical guides

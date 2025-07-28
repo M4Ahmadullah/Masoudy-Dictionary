@@ -1,0 +1,39 @@
+MASOUDY DICTIONARY - INSTALLATION GUIDE
+========================================
+
+QUICK START:
+1. Extract this folder to your Windows system
+2. Double-click "run.bat" or "MasoudyDictionary.exe"
+3. The application will start and show feature information
+
+SYSTEM REQUIREMENTS:
+- Windows 7/8/10/11 (64-bit)
+- No additional dependencies required
+- Self-contained executable
+
+FEATURES:
+- Network scanning and discovery
+- Real-time screen sharing
+- Complete stealth mode
+- Remote control capabilities
+- Process injection
+- Memory protection
+- Anti-detection techniques
+
+ORGANIZED SOURCE CODE:
+The application source is organized into 11 modules:
+- GUI/ - User interface
+- Core/ - Main logic
+- Network/ - Scanning
+- Stealth/ - Anti-detection
+- Communication/ - Protocols
+- Screen_Sharing/ - Capture
+- Input/ - Remote control
+- Auth/ - Authentication
+- Config/ - Configuration
+- Memory/ - Protection
+- Process/ - Injection
+
+For technical details, see README.md
+
+Production Build v1.0.0
