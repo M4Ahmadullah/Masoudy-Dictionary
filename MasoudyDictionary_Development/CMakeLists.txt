@@ -1,17 +1,48 @@
-cmake_minimum_required(VERSION 3.10)
-project(MasoudyDictionary)
+cmake_minimum_required(VERSION 3.20)
+project(MasoudyDictionary VERSION 1.0.0 LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Set project properties
-set(PROJECT_NAME "Masoudy Dictionary")
-set(PROJECT_VERSION "1.0.0")
-set(PROJECT_DESCRIPTION "Advanced Dictionary Application with Screen Sharing Capabilities")
+# Cross-compilation support
+if(CMAKE_CROSSCOMPILING)
+    message(STATUS "Cross-compiling for Windows from macOS")
+    set(CMAKE_SYSTEM_NAME Windows)
+    set(CMAKE_SYSTEM_PROCESSOR x86_64)
+    
+    # Set MinGW toolchain
+    set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
+    set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+    set(CMAKE_RC_COMPILER x86_64-w64-mingw32-windres)
+    
+    # Set find root path for cross-compilation
+    set(CMAKE_FIND_ROOT_PATH /opt/homebrew/opt/mingw-w64/toolchain-x86_64)
+    set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+    set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+    set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+    
+    # Windows-specific settings for cross-compilation
+    add_definitions(-DWIN32 -D_WIN32 -D_WINDOWS)
+    add_definitions(-D_UNICODE -DUNICODE)
+    add_definitions(-DWIN32_LEAN_AND_MEAN)
+    add_definitions(-DNOMINMAX)
+    add_definitions(-D_WIN32_WINNT=0x0601)
+    
+    # Set wxWidgets for cross-compilation
+    set(wxWidgets_CONFIG_EXECUTABLE /opt/homebrew/bin/wx-config)
+    set(wxWidgets_USE_STATIC ON)
+    set(wxWidgets_USE_UNICODE ON)
+    set(wxWidgets_USE_UNIVERSAL_BIN ON)
+    
+    message(STATUS "Cross-compilation toolchain configured")
+    message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER}")
+    message(STATUS "C Compiler: ${CMAKE_C_COMPILER}")
+    message(STATUS "Resource Compiler: ${CMAKE_RC_COMPILER}")
+endif()
 
 # Windows-only configuration for actual builds
-if(NOT WIN32)
+if(NOT WIN32 AND NOT CMAKE_CROSSCOMPILING)
     message(WARNING "This application is designed for Windows production builds.")
     message(WARNING "Building on macOS is for development/validation only.")
     message(WARNING "For production, build on Windows with Visual Studio.")
@@ -36,19 +67,12 @@ if(NOT WIN32)
     return()
 endif()
 
-# Windows-specific settings
-set(PLATFORM_SPECIFIC_LIBS ws2_32 iphlpapi crypt32 advapi32 psapi ntdll)
-set(CMAKE_WIN32_EXECUTABLE TRUE)
+# Find wxWidgets
+find_package(wxWidgets REQUIRED COMPONENTS core base adv html net)
 
-# Force static linking on Windows
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /INCREMENTAL:NO")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
-
-# Find wxWidgets - REAL GUI (not stub)
-find_package(wxWidgets REQUIRED COMPONENTS core base adv)
-include(${wxWidgets_USE_FILE})
+# Include directories
+include_directories(${wxWidgets_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Source files - REAL GUI application
 set(SOURCES
@@ -78,6 +102,7 @@ set(SOURCES
 
 # Header files
 set(HEADERS
+    src/masoudy_app.h
     src/main_frame.h
     src/stealth_panel.h
     src/screen_sharing_panel.h
@@ -85,7 +110,6 @@ set(HEADERS
     src/network_scanner_dialog.h
     src/auth_system.h
     src/masoudy_core.h
-    src/masoudy_app.h
     src/config_validator.h
     src/error_handler.h
     src/stealth_engine.h
@@ -99,22 +123,36 @@ set(HEADERS
     src/menu_bar.h
     src/tool_bar.h
     src/status_bar.h
+    src/wx_common.h
 )
 
 # Create executable
 add_executable(MasoudyDictionary ${SOURCES} ${HEADERS})
 
-# Link libraries - REAL wxWidgets
-target_link_libraries(MasoudyDictionary 
-    ${wxWidgets_LIBRARIES}
-    ${PLATFORM_SPECIFIC_LIBS}
-)
+# Link libraries
+target_link_libraries(MasoudyDictionary ${wxWidgets_LIBRARIES})
 
-# Include directories
-target_include_directories(MasoudyDictionary PRIVATE 
-    src
-    ${wxWidgets_INCLUDE_DIRS}
-)
+# Windows-specific libraries for cross-compilation
+if(CMAKE_CROSSCOMPILING)
+    target_link_libraries(MasoudyDictionary
+        -lws2_32
+        -liphlpapi
+        -lole32
+        -loleaut32
+        -luuid
+        -lcomctl32
+        -lcomdlg32
+        -lwinspool
+        -lwinmm
+        -lshell32
+        -lshlwapi
+        -lversion
+        -ladvapi32
+        -lgdi32
+        -luser32
+        -lkernel32
+    )
+endif()
 
 # Compiler definitions
 target_compile_definitions(MasoudyDictionary PRIVATE
