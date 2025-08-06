@@ -4,10 +4,6 @@
 #include <shlwapi.h>
 #endif
 
-#include <string>
-#include <vector>
-#include <map>
-
 #ifdef _WIN32
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "shlwapi.lib")
