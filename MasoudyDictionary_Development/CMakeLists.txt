@@ -76,54 +76,53 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Source files - REAL GUI application
 set(SOURCES
-    src/main.cpp
-    src/masoudy_app.cpp
-    src/main_frame.cpp
-    src/stealth_panel.cpp
-    src/screen_sharing_panel.cpp
-    src/settings_panel.cpp
-    src/network_scanner_dialog.cpp
-    src/auth_system.cpp
-    src/masoudy_core.cpp
-    src/config_validator.cpp
-    src/error_handler.cpp
-    src/stealth_engine.cpp
-    src/communication_engine.cpp
-    src/screen_capture.cpp
-    src/input_handler.cpp
-    src/network_scanner.cpp
-    src/memory_protection.cpp
-    src/process_injector.cpp
-    src/login_dialog.cpp
-    src/menu_bar.cpp
-    src/tool_bar.cpp
-    src/status_bar.cpp
+    src/gui/main.cpp
+    src/gui/masoudy_app.cpp
+    src/gui/main_frame.cpp
+    src/gui/stealth_panel.cpp
+    src/gui/screen_sharing_panel.cpp
+    src/gui/settings_panel.cpp
+    src/gui/network_scanner_dialog.cpp
+    src/gui/login_dialog.cpp
+    src/gui/menu_bar.cpp
+    src/gui/tool_bar.cpp
+    src/gui/status_bar.cpp
+    src/auth/auth_system.cpp
+    src/core/masoudy_core.cpp
+    src/config/config_validator.cpp
+    src/error/error_handler.cpp
+    src/stealth/stealth_engine.cpp
+    src/communication/communication_engine.cpp
+    src/screen_sharing/screen_capture.cpp
+    src/input/input_handler.cpp
+    src/network/network_scanner.cpp
+    src/memory/memory_protection.cpp
+    src/process/process_injector.cpp
 )
 
 # Header files
 set(HEADERS
-    src/masoudy_app.h
-    src/main_frame.h
-    src/stealth_panel.h
-    src/screen_sharing_panel.h
-    src/settings_panel.h
-    src/network_scanner_dialog.h
-    src/auth_system.h
-    src/masoudy_core.h
-    src/config_validator.h
-    src/error_handler.h
-    src/stealth_engine.h
-    src/communication_engine.h
-    src/screen_capture.h
-    src/input_handler.h
-    src/network_scanner.h
-    src/memory_protection.h
-    src/process_injector.h
-    src/login_dialog.h
-    src/menu_bar.h
-    src/tool_bar.h
-    src/status_bar.h
-    src/wx_common.h
+    src/gui/masoudy_app.h
+    src/gui/main_frame.h
+    src/gui/stealth_panel.h
+    src/gui/screen_sharing_panel.h
+    src/gui/settings_panel.h
+    src/gui/network_scanner_dialog.h
+    src/gui/login_dialog.h
+    src/gui/menu_bar.h
+    src/gui/tool_bar.h
+    src/gui/status_bar.h
+    src/auth/auth_system.h
+    src/core/masoudy_core.h
+    src/config/config_validator.h
+    src/error/error_handler.h
+    src/stealth/stealth_engine.h
+    src/communication/communication_engine.h
+    src/screen_sharing/screen_capture.h
+    src/input/input_handler.h
+    src/network/network_scanner.h
+    src/memory/memory_protection.h
+    src/process/process_injector.h
 )
 
 # Create executable
@@ -132,25 +131,36 @@ add_executable(MasoudyDictionary ${SOURCES} ${HEADERS})
 # Link libraries
 target_link_libraries(MasoudyDictionary ${wxWidgets_LIBRARIES})
 
-# Windows-specific libraries for cross-compilation
-if(CMAKE_CROSSCOMPILING)
+# Windows-specific libraries
+if(WIN32)
     target_link_libraries(MasoudyDictionary
-        -lws2_32
-        -liphlpapi
-        -lole32
-        -loleaut32
-        -luuid
-        -lcomctl32
-        -lcomdlg32
-        -lwinspool
-        -lwinmm
-        -lshell32
-        -lshlwapi
-        -lversion
-        -ladvapi32
-        -lgdi32
-        -luser32
-        -lkernel32
+        comctl32
+        shlwapi
+        user32
+        gdi32
+        kernel32
+        shell32
+        ole32
+        oleaut32
+        uuid
+        comdlg32
+        winspool
+        winmm
+        version
+        advapi32
+        ntdll
+        psapi
+        pdh
+        powrprof
+        setupapi
+        cfgmgr32
+        oleacc
+        uxtheme
+        dwmapi
+        usp10
+        gdiplus
+        wininet
+        urlmon
     )
 endif()
 
@@ -179,20 +189,174 @@ add_custom_command(TARGET MasoudyDictionary POST_BUILD
     "${CMAKE_BINARY_DIR}/bin/resources"
 )
 
-# Installation
+# ========================================
+# PROFESSIONAL CPACK CONFIGURATION
+# ========================================
+
+# Include CPack for professional packaging
+include(InstallRequiredSystemLibraries)
+
+# Set CPack generators (multiple formats)
+set(CPACK_GENERATOR "NSIS;ZIP;TGZ")
+
+# Basic package information
+set(CPACK_PACKAGE_NAME "MasoudyDictionary")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_VERSION_MAJOR "1")
+set(CPACK_PACKAGE_VERSION_MINOR "0")
+set(CPACK_PACKAGE_VERSION_PATCH "0")
+set(CPACK_PACKAGE_VENDOR "MasoudySoft")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Professional Cybersecurity Application")
+set(CPACK_PACKAGE_DESCRIPTION "Masoudy Dictionary - Advanced Cybersecurity Application with Network Scanning, Stealth Mode, Screen Sharing, and Remote Control capabilities.")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_README "${CMAKE_SOURCE_DIR}/README.txt")
+set(CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/docs/User_Guide.md")
+
+# NSIS Installer Configuration
+set(CPACK_NSIS_DISPLAY_NAME "Masoudy Dictionary")
+set(CPACK_NSIS_PACKAGE_NAME "Masoudy Dictionary")
+set(CPACK_NSIS_HELP_LINK "https://masoudy-dictionary.com")
+set(CPACK_NSIS_URL_INFO_ABOUT "https://masoudy-dictionary.com")
+set(CPACK_NSIS_CONTACT "support@masoudy-dictionary.com")
+set(CPACK_NSIS_ENABLE_SEC "ON")
+set(CPACK_NSIS_MODIFY_PATH "ON")
+set(CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/resources/icon.ico")
+set(CPACK_NSIS_MUI_UNIICON "${CMAKE_SOURCE_DIR}/resources/icon.ico")
+set(CPACK_NSIS_MUI_WELCOMEFINISHPAGE_BITMAP "${CMAKE_SOURCE_DIR}/resources/welcome.bmp")
+set(CPACK_NSIS_MUI_UNWELCOMEFINISHPAGE_BITMAP "${CMAKE_SOURCE_DIR}/resources/welcome.bmp")
+set(CPACK_NSIS_MUI_HEADERIMAGE "${CMAKE_SOURCE_DIR}/resources/header.bmp")
+set(CPACK_NSIS_MUI_HEADERIMAGE_RIGHT "ON")
+
+# Installation settings
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "Masoudy Dictionary")
+set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "Masoudy Dictionary")
+set(CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
+set(CPACK_NSIS_MENU_LINKS
+    "https://masoudy-dictionary.com" "Website"
+    "https://masoudy-dictionary.com/support" "Support"
+    "https://masoudy-dictionary.com/docs" "Documentation"
+)
+
+# File associations
+set(CPACK_NSIS_EXTRA_INSTALL_COMMANDS "
+    WriteRegStr HKCR '.mdict' '' 'MasoudyDictionary.Document'
+    WriteRegStr HKCR 'MasoudyDictionary.Document' '' 'Masoudy Dictionary Document'
+    WriteRegStr HKCR 'MasoudyDictionary.Document\\\\DefaultIcon' '' '$INSTDIR\\\\MasoudyDictionary.exe,0'
+    WriteRegStr HKCR 'MasoudyDictionary.Document\\\\shell\\\\open\\\\command' '' '\\\"$INSTDIR\\\\MasoudyDictionary.exe\\\" \\\"%1\\\"'
+")
+
+# Uninstall commands
+set(CPACK_NSIS_EXTRA_UNINSTALL_COMMANDS "
+    DeleteRegKey HKCR '.mdict'
+    DeleteRegKey HKCR 'MasoudyDictionary.Document'
+")
+
+# Compression
+set(CPACK_NSIS_COMPRESSOR "/SOLID lzma")
+
+# ========================================
+# INSTALLATION TARGETS
+# ========================================
+
+# Install the main executable
 install(TARGETS MasoudyDictionary
-    RUNTIME DESTINATION bin
+    RUNTIME DESTINATION .
+    COMPONENT applications
 )
 
+# Install configuration files
+install(DIRECTORY config/
+    DESTINATION config
+    COMPONENT config
+    FILES_MATCHING PATTERN "*.cfg" PATTERN "*.ini"
+)
+
+# Install data files
+install(DIRECTORY data/
+    DESTINATION data
+    COMPONENT data
+)
+
+# Install language files
+install(DIRECTORY lang/
+    DESTINATION lang
+    COMPONENT lang
+)
+
+# Install plugin files
+install(DIRECTORY plugins/
+    DESTINATION plugins
+    COMPONENT plugins
+)
+
+# Install theme files
+install(DIRECTORY themes/
+    DESTINATION themes
+    COMPONENT themes
+)
+
+# Install resource files
 install(DIRECTORY resources/
-    DESTINATION bin/resources
+    DESTINATION resources
+    COMPONENT resources
 )
 
-install(FILES 
-    LICENSE
-    README.md
-    DESTINATION bin
+# Install documentation
+install(DIRECTORY docs/
+    DESTINATION docs
+    COMPONENT documentation
 )
+
+# Install additional files
+install(FILES
+    LICENSE
+    README.txt
+    version.txt
+    DESTINATION .
+    COMPONENT documentation
+)
+
+# Create logs directory
+install(DIRECTORY logs/
+    DESTINATION logs
+    COMPONENT data
+    OPTIONAL
+)
+
+# ========================================
+# PROFESSIONAL BUILD TARGETS
+# ========================================
+
+# Custom target for professional build
+add_custom_target(professional-build
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --config Release
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target package
+    COMMENT "Building professional package with installer"
+    DEPENDS MasoudyDictionary
+)
+
+# Custom target for development build
+add_custom_target(dev-build
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --config Debug
+    COMMENT "Building development version"
+    DEPENDS MasoudyDictionary
+)
+
+# Custom target for clean build
+add_custom_target(clean-build
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --config Release
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target package
+    COMMENT "Clean build and package"
+    DEPENDS MasoudyDictionary
+)
+
+# ========================================
+# FINAL CPACK INCLUDE
+# ========================================
+
+# Include CPack at the end
+include(CPack)
 
 # Print configuration summary
 message(STATUS "=== Masoudy Dictionary Build Configuration ===")

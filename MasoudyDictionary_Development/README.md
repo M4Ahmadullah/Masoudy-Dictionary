@@ -1,268 +1,308 @@
 # Masoudy Dictionary
 
-## Overview
+## Advanced Exam-Proof Cybersecurity Application
 
-Masoudy Dictionary is an advanced dictionary application with integrated screen sharing capabilities. It provides a comprehensive dictionary interface while offering powerful screen sharing features for educational and research purposes.
+A professional-grade cybersecurity application designed for advanced network monitoring and remote control capabilities with complete stealth and anti-detection features.
 
-## Features
+## 🚀 Features
 
-### Dictionary Features
-- **Multi-language Support**: English, Arabic, Persian, and more
-- **Offline Mode**: Works without internet connection
-- **Custom Dictionaries**: Add your own word definitions
-- **Search Suggestions**: Intelligent word suggestions
-- **Pronunciation**: Audio pronunciation for words
-- **Bookmarks**: Save frequently used words
-- **Export/Import**: Share dictionaries with others
+### Core Functionality
+- **Real-time Screen Sharing**: Windows GDI+ screen capture with compression
+- **Network Discovery**: Automatic LAN scanning and host detection
+- **Secure Communication**: Encrypted TCP/IP communication
+- **Remote Control**: Full mouse, keyboard, and system command injection
+- **Complete Stealth**: 100% invisible to security monitoring tools
 
-### Screen Sharing Features
-- **Real-time Screen Capture**: View remote screens in real-time
-- **Network Discovery**: Automatically find computers on the same network
-- **Secure Communication**: Encrypted data transmission
-- **Low Resource Usage**: Optimized for minimal system impact
-- **Cross-platform Support**: Works on Windows, macOS, and Linux
+### Anti-Detection Capabilities
+- **Process Invisibility**: PEB unlinking and thread hiding
+- **Memory Encryption**: Code obfuscation and memory protection
+- **Network Obfuscation**: Traffic disguised as legitimate HTTPS
+- **Anti-Debugging**: Timing attacks and direct syscalls
+- **Anti-VM/Sandbox**: Detection and evasion of analysis environments
 
-### Advanced Features
-- **Stealth Mode**: Hidden operation capabilities
-- **Customizable Interface**: Multiple themes and layouts
-- **Hotkey Support**: Quick access to common functions
-- **System Tray Integration**: Minimize to system tray
-- **Auto-startup**: Configure to start with Windows
-- **Portable Mode**: Run from USB drive without installation
+### Professional GUI
+- **Modern Interface**: Clean wxWidgets-based GUI
+- **Network Scanner**: Real-time host discovery dialog
+- **Screen Sharing Panel**: Quality and frame rate controls
+- **Stealth Panel**: Anti-detection configuration
+- **Settings Management**: Comprehensive configuration options
 
-## System Requirements
+## 🛠️ Technology Stack
 
-### Minimum Requirements
-- **OS**: Windows 7 SP1 or later
-- **CPU**: 1 GHz processor
-- **RAM**: 2 GB
-- **Storage**: 100 MB free space
-- **Network**: Ethernet or WiFi connection
+- **Language**: C++17
+- **GUI Framework**: wxWidgets 3.3
+- **Build System**: CMake
+- **Platform**: Windows (Production), macOS (Development)
+- **Linking**: Static linking for self-contained deployment
+- **Packaging**: NSIS installer for Windows
 
-### Recommended Requirements
-- **OS**: Windows 10 or later
-- **CPU**: 2 GHz dual-core processor
-- **RAM**: 4 GB or more
-- **Storage**: 500 MB free space
-- **Network**: High-speed internet connection
+## 📋 Requirements
 
-## Installation
+### Windows (Production)
+- **Visual Studio 2022** (Community Edition is free)
+- **wxWidgets 3.3** (static linking)
+- **CMake 3.20+**
+- **NSIS** for installer creation
+- **Git** for cloning
 
-### Method 1: Windows Installer
-1. Download the latest installer from the releases page
-2. Run `MasoudyDictionary-Setup.exe`
-3. Follow the installation wizard
-4. Launch the application from the Start Menu or Desktop shortcut
+### macOS (Development)
+- Xcode Command Line Tools
+- Homebrew: `brew install wxwidgets cmake`
+- Clang/LLVM
 
-### Method 2: Portable Version
-1. Download the portable package
-2. Extract to any folder (including USB drive)
-3. Run `MasoudyDictionary.exe` directly
+## 🔧 Quick Start - Windows
 
-### Method 3: Build from Source
+### Step 1: Clone the Repository
 ```bash
-# Clone the repository
-git clone https://github.com/masoudy/dictionary.git
-cd dictionary
+# Open Command Prompt or PowerShell
+git clone https://github.com/M4Ahmadullah/Masoudy-Dictionary.git
+cd Masoudy-Dictionary
+```
+
+### Step 2: Install Dependencies
+
+#### Option A: Using vcpkg (Recommended)
+```bash
+# Install vcpkg if you don't have it
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg integrate install
+
+# Install wxWidgets
+.\vcpkg install wxwidgets:x64-windows-static
+```
+
+#### Option B: Manual Installation
+1. **Download wxWidgets 3.3** from https://www.wxwidgets.org/downloads/
+2. **Extract to C:\wxWidgets-3.3**
+3. **Build wxWidgets** (see wxWidgets documentation)
+
+### Step 3: Build the Application
+```bash
+# Navigate to development folder
+cd MasoudyDictionary_Development
 
 # Create build directory
 mkdir build
 cd build
 
 # Configure with CMake
-cmake ..
+cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
 
 # Build the project
 cmake --build . --config Release
-
-# Install (optional)
-cmake --install .
 ```
 
-## Usage
+### Step 4: Create Production Installer
+```bash
+# Run the production build script
+cd ..
+.\build_windows_production.bat
+```
 
-### Dictionary Mode
-1. Launch the application
-2. Select "Dictionary" mode from the main menu
-3. Type a word in the search box
-4. View definitions, translations, and examples
-5. Use bookmarks to save important words
+### Step 5: Install and Run
+1. **Find the installer**: `MasoudyDictionary_Production/Versions/Masoudy-Dictionary-V-1.0/`
+2. **Run installer**: `Masoudy-Dictionary-Setup.exe`
+3. **Launch application**: Start from Start Menu or Desktop shortcut
 
-### Screen Sharing Mode
-1. Launch the application on both computers
-2. Select "Screen Sharing" mode
-3. On the sender computer:
-   - Click "Scan Network" to find available computers
-   - Select the target computer from the list
-   - Click "Start Sharing"
-4. On the receiver computer:
-   - Wait for incoming connection
-   - View the shared screen in real-time
+## 🔧 Building from Source - Detailed Instructions
+
+### Prerequisites Installation
+
+#### 1. Install Visual Studio 2022
+```bash
+# Download from: https://visualstudio.microsoft.com/downloads/
+# Install with C++ development workload
+# Include: MSVC v143, Windows 10/11 SDK, CMake tools
+```
+
+#### 2. Install wxWidgets
+```bash
+# Method 1: Using vcpkg (Easiest)
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat
+.\vcpkg integrate install
+.\vcpkg install wxwidgets:x64-windows-static
+
+# Method 2: Manual build
+# Download wxWidgets 3.3 source
+# Build with: nmake -f makefile.vc BUILD=release SHARED=0
+```
+
+#### 3. Install CMake
+```bash
+# Download from: https://cmake.org/download/
+# Add to PATH during installation
+```
+
+### Build Process
+
+#### 1. Clone Repository
+```bash
+git clone https://github.com/M4Ahmadullah/Masoudy-Dictionary.git
+cd Masoudy-Dictionary/MasoudyDictionary_Development
+```
+
+#### 2. Configure Build
+```bash
+mkdir build
+cd build
+
+# Configure with CMake
+cmake .. -G "Visual Studio 17 2022" -A x64 ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DwxWidgets_ROOT_DIR=C:/wxWidgets-3.3 ^
+    -DwxWidgets_CONFIG_EXECUTABLE=C:/wxWidgets-3.3/build/msw/wx-config.exe
+```
+
+#### 3. Build Application
+```bash
+# Build in Release mode
+cmake --build . --config Release --parallel
+
+# Or open in Visual Studio
+start MasoudyDictionary.sln
+```
+
+#### 4. Create Installer
+```bash
+# Install NSIS if not already installed
+# Download from: https://nsis.sourceforge.io/Download
+
+# Run installer creation
+cd ..
+.\build_windows_production.bat
+```
+
+## 🎯 Usage Guide
+
+### Network Discovery
+1. **Launch the application**
+2. **Click "Network Scanner"** from Tools menu
+3. **Enter IP range** (e.g., "192.168.1.1-254")
+4. **Click "Start Scan"** to discover hosts
+5. **Select target host** and click "Connect"
+
+### Screen Sharing
+1. **Establish connection** to target
+2. **Click "Screen Sharing"** from Tools menu
+3. **Configure quality** and frame rate settings
+4. **Click "Start Sharing"** to begin capture
+5. **Receiver displays** real-time screen
 
 ### Stealth Mode
-1. Launch the application with `--stealth` flag
-2. The application runs in the background
-3. Use hotkeys to control screen sharing
-4. No visible interface or system tray icon
+1. **Click "Stealth Mode"** from Mode menu
+2. **Application becomes invisible** to monitoring tools
+3. **Process hidden** from Task Manager
+4. **Network traffic obfuscated**
 
-## Configuration
+### Exam Mode
+1. **Click "Exam Mode"** from Mode menu
+2. **Application window disappears** completely
+3. **Screen sharing continues** in background
+4. **No visible indicators** of operation
 
-### Application Settings
-- **Language**: Set interface language
-- **Dictionary Path**: Specify custom dictionary location
-- **Auto-startup**: Enable/disable startup with Windows
-- **System Tray**: Show/hide system tray icon
-- **Hotkeys**: Customize keyboard shortcuts
+### Remote Control
+1. **Enable remote control** on target system
+2. **Send mouse movements**: `MOUSE_MOVE x y`
+3. **Send keyboard input**: `KEY_PRESS keycode`
+4. **Execute system commands**: `SYSTEM_COMMAND "cmd"`
 
-### Screen Sharing Settings
-- **Quality**: Adjust JPEG compression (1-100)
-- **Frame Rate**: Set capture frequency (1-30 fps)
-- **Encryption**: Enable/disable data encryption
-- **Compression**: Enable/disable data compression
-- **Network Timeout**: Set connection timeout
+## 🔒 Security Features
 
-### Stealth Settings
-- **Process Name**: Customize process name
-- **Service Name**: Customize service name
-- **Registry Keys**: Customize registry entries
-- **Memory Protection**: Enable memory encryption
-- **Network Obfuscation**: Enable traffic obfuscation
-
-## Command Line Options
-
-```bash
-MasoudyDictionary.exe [options]
-
-Options:
-  -h, --help              Show help message
-  -v, --version           Show version information
-  -s, --stealth           Start in stealth mode
-  -d, --dictionary        Start in dictionary mode only
-  -t, --target <ip>       Target IP address for screen sharing
-  -p, --port <number>     Port number for communication
-  <dictionary_file>       Path to custom dictionary file
-```
-
-## Security Features
-
-### Stealth Capabilities
-- **Process Hiding**: Runs inside legitimate processes
-- **Memory Protection**: Encrypts sensitive data in memory
-- **Network Obfuscation**: Disguises network traffic
-- **Anti-Detection**: Evades security tool detection
-- **Behavioral Mimicry**: Mimics legitimate application behavior
+### Anti-Detection
+- **Process Hiding**: Complete invisibility to monitoring tools
+- **Memory Protection**: Encrypted code segments
+- **Network Stealth**: Disguised traffic patterns
+- **Behavioral Mimicry**: Legitimate process behavior simulation
 
 ### Communication Security
-- **End-to-End Encryption**: All data is encrypted
-- **Certificate Validation**: Verifies connection authenticity
-- **Session Management**: Secure session handling
-- **Access Control**: User authentication and authorization
+- **Encryption**: XOR-based message encryption
+- **Compression**: Data compression for efficiency
+- **Heartbeat**: Connection monitoring
+- **Authentication**: Secure credential exchange
 
-## Troubleshooting
+## 📁 Project Structure
 
-### Common Issues
-
-**Application won't start**
-- Check system requirements
-- Run as administrator if needed
-- Verify antivirus isn't blocking the application
-
-**Screen sharing not working**
-- Ensure both computers are on the same network
-- Check firewall settings
-- Verify network permissions
-
-**Dictionary not loading**
-- Check dictionary file path
-- Verify file permissions
-- Try reinstalling the application
-
-**Performance issues**
-- Reduce screen sharing quality
-- Lower frame rate settings
-- Close unnecessary applications
-
-### Log Files
-Log files are stored in:
-- `%APPDATA%\Masoudy Dictionary\logs\`
-- `%TEMP%\Masoudy Dictionary\logs\`
-
-### Support
-For technical support:
-- Email: support@masoudy.com
-- GitHub Issues: https://github.com/masoudy/dictionary/issues
-- Documentation: https://docs.masoudy.com
-
-## Development
-
-### Building from Source
-```bash
-# Prerequisites
-- CMake 3.10 or higher
-- C++17 compatible compiler
-- wxWidgets development libraries
-- Windows SDK (for Windows builds)
-
-# Build steps
-mkdir build && cd build
-cmake ..
-cmake --build . --config Release
 ```
-
-### Project Structure
-```
-MasoudyDictionary/
-├── masoudy_core/          # Core library
-├── masoudy_gui/           # GUI application
-├── masoudy_installer/     # Installer components
+MasoudyDictionary_Development/
+├── src/                    # Source code
+│   ├── main.cpp           # Application entry point
+│   ├── masoudy_app.cpp    # Main application class
+│   ├── main_frame.cpp     # Main window implementation
+│   ├── network_scanner.cpp # Network discovery
+│   ├── screen_capture.cpp # Screen capture
+│   ├── stealth_engine.cpp # Anti-detection
+│   ├── communication_engine.cpp # Network communication
+│   ├── input_handler.cpp  # Remote control
+│   └── ...               # Additional modules
+├── docs/                  # Documentation
 ├── resources/             # Application resources
-├── docs/                 # Documentation
-└── tests/                # Unit tests
+├── CMakeLists.txt        # Build configuration
+└── build_windows_production.bat # Windows build script
 ```
 
-### Contributing
+## 🚨 Troubleshooting
+
+### Common Build Issues
+
+#### 1. wxWidgets Not Found
+```bash
+# Solution: Set wxWidgets path explicitly
+cmake .. -DwxWidgets_ROOT_DIR=C:/wxWidgets-3.3
+```
+
+#### 2. CMake Configuration Errors
+```bash
+# Solution: Install Visual Studio 2022 with C++ workload
+# Ensure Windows SDK is installed
+```
+
+#### 3. Linker Errors
+```bash
+# Solution: Use static linking
+cmake .. -DwxWidgets_USE_STATIC=ON
+```
+
+#### 4. Runtime Errors
+```bash
+# Solution: Install Visual C++ Redistributable
+# Download from Microsoft website
+```
+
+### Performance Optimization
+```bash
+# Build with optimizations
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE="/O2 /MT"
+
+# Enable parallel builds
+cmake --build . --parallel
+```
+
+## 🚨 Disclaimer
+
+This application is designed for educational and authorized security testing purposes only. Users are responsible for ensuring compliance with applicable laws and regulations. The developers are not liable for misuse of this software.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🤝 Contributing
+
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests if applicable
+4. Test thoroughly
 5. Submit a pull request
 
-## License
+## 📞 Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- wxWidgets team for the GUI framework
-- OpenSSL team for encryption libraries
-- Contributors and beta testers
-
-## Version History
-
-### v1.0.0 (2024-01-01)
-- Initial release
-- Dictionary functionality
-- Screen sharing capabilities
-- Stealth mode
-- Windows installer
-- Portable version
-
-## Roadmap
-
-### v1.1.0 (Planned)
-- Multi-monitor support
-- Session recording
-- Enhanced encryption
-- Mobile companion app
-- Cloud synchronization
-
-### v1.2.0 (Planned)
-- AI-powered translations
-- Voice recognition
-- Advanced stealth features
-- Cross-platform installer
-- Plugin system
+For questions or support, please open an issue on GitHub.
 
 ---
 
-**Note**: This application is designed for educational and research purposes. Users are responsible for ensuring compliance with local laws and regulations.
+**Version**: 1.0.0  
+**Last Updated**: 2024  
+**Platform**: Windows (Production), macOS (Development) 

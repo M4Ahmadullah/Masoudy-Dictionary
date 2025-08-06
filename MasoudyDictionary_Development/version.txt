@@ -1,0 +1,27 @@
+Masoudy Dictionary v1.0.0
+Build Date: 2024-07-29
+Build Type: Release
+Architecture: x64
+Compiler: Visual Studio 2022 (MSVC v143)
+GUI Framework: wxWidgets 3.2+ (Static Linking)
+Linking: Static (Self-contained)
+Size: ~20-40MB (with all dependencies)
+
+Features:
+- Professional wxWidgets GUI
+- Network scanning and discovery
+- Stealth mode and anti-detection
+- Screen sharing and remote control
+- Static linking (no dependencies)
+- Professional installer (NSIS)
+- Complete documentation
+
+System Requirements:
+- Windows 10/11 (64-bit)
+- 4GB RAM minimum
+- 100MB disk space
+- Internet connection (for updates)
+
+Developer: MasoudySoft
+Website: https://masoudy-dictionary.com
+Support: support@masoudy-dictionary.com 

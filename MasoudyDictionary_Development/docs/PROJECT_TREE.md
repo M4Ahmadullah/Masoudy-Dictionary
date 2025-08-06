@@ -21,46 +21,58 @@ MasoudyDictionary_Development/
 │   ├── README.md                    # Project overview
 │   └── User_Guide.md                # End-user instructions
 ├── src/                             # Source files (Windows-only)
-│   ├── main.cpp                     # Application entry point (wxWidgets)
-│   ├── main_frame.cpp               # Main window implementation
-│   ├── main_frame.h                 # Main window header
-│   ├── masoudy_app.cpp              # wxWidgets application class
-│   ├── masoudy_app.h                # wxWidgets application header
-│   ├── stealth_panel.cpp            # Stealth mode panel
-│   ├── stealth_panel.h              # Stealth panel header
-│   ├── screen_sharing_panel.cpp     # Screen sharing panel
-│   ├── screen_sharing_panel.h       # Screen sharing panel header
-│   ├── settings_panel.cpp           # Settings panel
-│   ├── settings_panel.h             # Settings panel header
-│   ├── network_scanner_dialog.cpp   # Network scanner dialog
-│   ├── network_scanner_dialog.h     # Network scanner dialog header
-│   ├── auth_system.cpp              # Authentication system
-│   ├── auth_system.h                # Authentication system header
-│   ├── masoudy_core.cpp             # Core application logic
-│   ├── masoudy_core.h               # Core application header
-│   ├── config_validator.cpp         # Configuration validation
-│   ├── config_validator.h           # Configuration validator header
-│   ├── error_handler.cpp            # Error handling
-│   ├── error_handler.h              # Error handler header
-│   ├── stealth_engine.cpp           # Stealth and evasion
-│   ├── stealth_engine.h             # Stealth engine header
-│   ├── communication_engine.cpp     # Network communication
-│   ├── communication_engine.h       # Communication engine header
-│   ├── screen_capture.cpp           # Screen capture functionality
-│   ├── screen_capture.h             # Screen capture header
-│   ├── input_handler.cpp            # Input handling
-│   ├── input_handler.h              # Input handler header
-│   ├── network_scanner.cpp          # Network discovery
-│   ├── network_scanner.h            # Network scanner header
-│   ├── memory_protection.cpp        # Memory protection
-│   ├── memory_protection.h          # Memory protection header
-│   ├── process_injector.cpp         # Process injection
-│   ├── process_injector.h           # Process injector header
-│   ├── login_dialog.cpp             # Login dialog
-│   ├── login_dialog.h               # Login dialog header
-│   ├── menu_bar.h                   # Menu bar header
-│   ├── tool_bar.h                   # Tool bar header
-│   └── status_bar.h                 # Status bar header
+│   ├── gui/                         # GUI components
+│   │   ├── main.cpp                 # Application entry point (wxWidgets)
+│   │   ├── main_frame.cpp           # Main window implementation
+│   │   ├── main_frame.h             # Main window header
+│   │   ├── masoudy_app.cpp          # wxWidgets application class
+│   │   ├── masoudy_app.h            # wxWidgets application header
+│   │   ├── stealth_panel.cpp        # Stealth mode panel
+│   │   ├── stealth_panel.h          # Stealth panel header
+│   │   ├── screen_sharing_panel.cpp # Screen sharing panel
+│   │   ├── screen_sharing_panel.h   # Screen sharing panel header
+│   │   ├── settings_panel.cpp       # Settings panel
+│   │   ├── settings_panel.h         # Settings panel header
+│   │   ├── network_scanner_dialog.cpp # Network scanner dialog
+│   │   ├── network_scanner_dialog.h # Network scanner dialog header
+│   │   ├── login_dialog.cpp         # Login dialog
+│   │   ├── login_dialog.h           # Login dialog header
+│   │   ├── menu_bar.h               # Menu bar header
+│   │   ├── tool_bar.h               # Tool bar header
+│   │   └── status_bar.h             # Status bar header
+│   ├── auth/                        # Authentication system
+│   │   ├── auth_system.cpp          # Authentication system
+│   │   └── auth_system.h            # Authentication system header
+│   ├── core/                        # Core application logic
+│   │   ├── masoudy_core.cpp         # Core application logic
+│   │   └── masoudy_core.h           # Core application header
+│   ├── config/                      # Configuration management
+│   │   ├── config_validator.cpp     # Configuration validation
+│   │   └── config_validator.h       # Configuration validator header
+│   ├── error/                       # Error handling
+│   │   ├── error_handler.cpp        # Error handling
+│   │   └── error_handler.h          # Error handler header
+│   ├── stealth/                     # Stealth and evasion
+│   │   ├── stealth_engine.cpp       # Stealth and evasion
+│   │   └── stealth_engine.h         # Stealth engine header
+│   ├── communication/               # Network communication
+│   │   ├── communication_engine.cpp # Network communication
+│   │   └── communication_engine.h   # Communication engine header
+│   ├── screen_sharing/              # Screen capture functionality
+│   │   ├── screen_capture.cpp       # Screen capture functionality
+│   │   └── screen_capture.h         # Screen capture header
+│   ├── input/                       # Input handling
+│   │   ├── input_handler.cpp        # Input handling
+│   │   └── input_handler.h          # Input handler header
+│   ├── network/                     # Network discovery
+│   │   ├── network_scanner.cpp      # Network discovery
+│   │   └── network_scanner.h        # Network scanner header
+│   ├── memory/                      # Memory protection
+│   │   ├── memory_protection.cpp    # Memory protection
+│   │   └── memory_protection.h      # Memory protection header
+│   └── process/                     # Process injection
+│       ├── process_injector.cpp     # Process injection
+│       └── process_injector.h       # Process injector header
 ├── resources/                       # Application resources
 │   ├── icon.ico                     # Application icon (black M)
 │   ├── resources.rc                 # Windows resources
@@ -276,6 +288,7 @@ MasoudyDictionary_Production/Versions/Masoudy-Dictionary-V-1.0/
 ## Current Status
 
 ### ✅ Completed Features
+- **Source Code Organization**: Logical subdirectories in src/
 - **Real wxWidgets GUI**: Professional interface implementation
 - **Windows Integration**: Native Windows API usage
 - **Static Linking**: Self-contained executable
@@ -284,12 +297,13 @@ MasoudyDictionary_Production/Versions/Masoudy-Dictionary-V-1.0/
 - **Production Packaging**: NSIS installer and deployment
 
 ### 🚧 Development Status
-- **Status**: Production Ready - Windows Only
+- **Status**: Ready for Windows Build
+- **Source Organization**: ✅ Logical subdirectories created
 - **Build System**: ✅ CMake with static linking
 - **GUI Framework**: ✅ Real wxWidgets implementation
 - **Documentation**: ✅ Complete technical documentation
 - **Packaging**: ✅ Professional installer ready
-- **Testing**: ✅ Windows compatibility verified
+- **Next Step**: Build on Windows with Visual Studio 2022
 
 ## Expected File Sizes
 
@@ -327,4 +341,4 @@ MasoudyDictionary_Production/Versions/Masoudy-Dictionary-V-1.0/
 
 The application is now **Windows-only** with **real GUI** and **static linking** - exactly as requested!
 
-**Status: Production Ready - Windows Only** 
+**Status: Ready for Windows Build - Source Code Organized** 

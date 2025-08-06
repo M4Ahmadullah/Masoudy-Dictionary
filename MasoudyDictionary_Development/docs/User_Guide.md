@@ -137,7 +137,7 @@ The network scanner provides stealthy network discovery:
 #### Scanner Interface
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Network Research Scanner                                  X │
+│  Network Research Scanner                                 X │
 ├─────────────────────────────────────────────────────────────┤
 │ ┌─────────────────────────────────────────────────────────┐ │
 │ │ Exam-Proof Scan Options                                 │ │
@@ -170,7 +170,7 @@ The network scanner provides stealthy network discovery:
 │ │ │                                                     │ │ │
 │ │ │                                                     │ │ │
 │ │ └─────────────────────────────────────────────────────┘ │ │
-│ │ Status: Exam-proof scanning active.                    │ │
+│ │ Status: Exam-proof scanning active.                     │ │
 │ │ [━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━] │ │
 │ └─────────────────────────────────────────────────────────┘ │
 │                                                             │

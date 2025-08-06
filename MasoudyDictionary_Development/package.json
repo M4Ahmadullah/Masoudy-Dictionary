@@ -1,0 +1,67 @@
+{
+  "name": "masoudy-dictionary",
+  "version": "1.0.0",
+  "description": "Professional Cybersecurity Application with Network Scanning, Stealth Mode, Screen Sharing, and Remote Control",
+  "main": "src/gui/main.cpp",
+  "scripts": {
+    "build": "./build_professional.sh build",
+    "dev": "./build_professional.sh dev",
+    "clean": "./build_professional.sh clean",
+    "package": "./build_professional.sh package",
+    "install": "./build_professional.sh build",
+    "start": "echo 'Run MasoudyDictionary.exe on Windows'",
+    "test": "echo 'Test the application on Windows'",
+    "dist": "./build_professional.sh build"
+  },
+  "keywords": [
+    "cybersecurity",
+    "network-scanner",
+    "stealth-mode",
+    "screen-sharing",
+    "remote-control",
+    "windows",
+    "c++",
+    "wxwidgets"
+  ],
+  "author": "MasoudySoft",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masoudysoft/masoudy-dictionary.git"
+  },
+  "homepage": "https://masoudy-dictionary.com",
+  "bugs": {
+    "url": "https://github.com/masoudysoft/masoudy-dictionary/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "cmake": "^3.20.0",
+    "mingw-w64": "^8.0.0",
+    "nsis": "^3.0.0"
+  },
+  "dependencies": {
+    "wxwidgets": "^3.2.0"
+  },
+  "build": {
+    "target": "windows",
+    "arch": "x64",
+    "type": "release",
+    "linking": "static",
+    "compression": "lzma"
+  },
+  "outputs": {
+    "executable": "MasoudyDictionary.exe",
+    "installer": "MasoudyDictionary_Professional_Installer.exe",
+    "package": "MasoudyDictionary_Production/"
+  },
+  "features": {
+    "gui": "wxWidgets",
+    "network": "Winsock",
+    "crypto": "Windows CryptoAPI",
+    "stealth": "Anti-detection",
+    "screen-sharing": "Real-time capture",
+    "remote-control": "Mouse/Keyboard control"
+  }
+} 
